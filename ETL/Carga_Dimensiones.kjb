@@ -303,8 +303,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>192</xloc>
-      <yloc>304</yloc>
+      <xloc>144</xloc>
+      <yloc>176</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -313,8 +313,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>688</xloc>
-      <yloc>304</yloc>
+      <xloc>816</xloc>
+      <yloc>176</yloc>
     </entry>
     <entry>
       <name>Carga D_DISTRITO</name>
@@ -349,7 +349,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
+      <xloc>368</xloc>
       <yloc>64</yloc>
     </entry>
     <entry>
@@ -385,8 +385,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>144</yloc>
+      <xloc>560</xloc>
+      <yloc>64</yloc>
     </entry>
     <entry>
       <name>Carga D_ESTACION_BICING</name>
@@ -421,8 +421,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>224</yloc>
+      <xloc>352</xloc>
+      <yloc>304</yloc>
     </entry>
     <entry>
       <name>Carga D_TRANSPORTE</name>
@@ -457,8 +457,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>496</yloc>
+      <xloc>576</xloc>
+      <yloc>304</yloc>
     </entry>
     <entry>
       <name>Carga D_NIVEL_EVENTO</name>
@@ -493,8 +493,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>304</yloc>
+      <xloc>336</xloc>
+      <yloc>176</yloc>
     </entry>
     <entry>
       <name>Carga D_EVENTO</name>
@@ -529,8 +529,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>368</yloc>
+      <xloc>464</xloc>
+      <yloc>176</yloc>
     </entry>
     <entry>
       <name>Carga D_UBICACION_EVENTO</name>
@@ -565,8 +565,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>416</xloc>
-      <yloc>432</yloc>
+      <xloc>608</xloc>
+      <yloc>176</yloc>
     </entry>
   </entries>
   <hops>
@@ -580,53 +580,8 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Carga D_DISTRITO</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>START</from>
-      <to>Carga D_BARRIO</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Carga D_BARRIO</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>START</from>
       <to>Carga D_ESTACION_BICING</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Carga D_ESTACION_BICING</from>
-      <to>Success</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>START</from>
-      <to>Carga D_TRANSPORTE</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -652,7 +607,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Carga D_NIVEL_EVENTO</from>
+      <from>Carga D_UBICACION_EVENTO</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -661,17 +616,35 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>START</from>
+      <from>Carga D_DISTRITO</from>
+      <to>Carga D_BARRIO</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Carga D_BARRIO</from>
+      <to>Success</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Carga D_NIVEL_EVENTO</from>
       <to>Carga D_EVENTO</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
       <from>Carga D_EVENTO</from>
-      <to>Success</to>
+      <to>Carga D_UBICACION_EVENTO</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -679,17 +652,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>START</from>
-      <to>Carga D_UBICACION_EVENTO</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
-      <from>Carga D_UBICACION_EVENTO</from>
-      <to>Success</to>
+      <from>Carga D_ESTACION_BICING</from>
+      <to>Carga D_TRANSPORTE</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
