@@ -1,7 +1,33 @@
 ﻿-- X: 432255,316 -- Y: 4584222,721
 
---SELECT * FROM COA.D_UBICACION_EVENTO
+SELECT * FROM COA.D_UBICACION_EVENTO WHERE calle LIKE '%Guin%'
 
-SELECT ST_AsText(ST_Transform(ST_PointFromText('POINT(432255.316 4584222.721)',23031), 4326));
+--SELECT ST_AsText(ST_Transform(ST_PointFromText('POINT(432255.316 4584222.721)',23031), 4326));
 
 --SELECT ST_AsText(ST_Transform(ST_PointFromText('POINT(432255.316 4584222.721)',32631), 4326));
+
+--SELECT id_ubicacion_evento,ST_X(the_geom) as X, ST_Y(the_geom) as Y, ST_AsText(the_geom) FROM COA.D_UBICACION_EVENTO;
+
+--SELECT longitud,latitud,ST_AsText(ST_Transform(ST_PointFromText('POINT(' || longitud || ' ' || latitud || ')',23031), 4326)) FROM COA.D_UBICACION_EVENTO WHERE id_ubicacion_evento=525;
+
+
+--estes es el bueno
+--SELECT ST_AsText(ST_Transform(ST_SetSRID(ST_Point(cast(longitud as float), cast(latitud as float)),23031),4326)::geography) FROM COA.D_UBICACION_EVENTO WHERE id_ubicacion_evento=525;
+
+--test
+--SELECT ST_Transform(ST_SetSRID(ST_Point(cast(longitud as float), cast(latitud as float)),23031),4326) FROM COA.D_UBICACION_EVENTO WHERE id_ubicacion_evento=525;
+
+--Test X
+--SELECT ST_X(the_geom), ST_Y(the_geom) FROM COA.D_UBICACION_EVENTO WHERE id_ubicacion_evento=525;
+
+
+--Generar geometria WGS84
+--UPDATE COA.D_UBICACION_EVENTO SET the_geom = ST_Transform(ST_SetSRID(ST_Point(cast(longitud as float), cast(latitud as float)),23031),4326)
+
+-- Actualizar longitud a WGS84
+--UPDATE COA.D_UBICACION_EVENTO
+--SET longitud = ST_X(the_geom);
+
+-- Actualizar latitud a WGS84
+--UPDATE COA.D_UBICACION_EVENTO
+--SET latitud = ST_Y(the_geom);
