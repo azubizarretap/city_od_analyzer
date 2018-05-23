@@ -6,6 +6,7 @@
     <extended_description />
     <trans_version />
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -410,7 +411,7 @@
     <size_rowset>10000</size_rowset>
     <sleep_time_empty>50</sleep_time_empty>
     <sleep_time_full>50</sleep_time_full>
-    <unique_connections>N</unique_connections>
+    <unique_connections>Y</unique_connections>
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
@@ -488,23 +489,18 @@
   </connection>
   <order>
     <hop>
-      <from>Cargar Datos XML</from>
-      <to>Obtener ID_Evento</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Obtener ID_Evento</from>
-      <to>Obtener ID_Distrito</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Obtener ID_Distrito</from>
       <to>Filtrar valores sin informacion geografica</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Cargar Datos XML</from>
+      <to>Obtener ID_Distrito</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Filtrar valores sin informacion geografica</from>
-      <to>Insertar / Actualizar D_UBICACION_EVENTO</to>
+      <to>Carga D_Ubicacion_Evento</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -556,23 +552,8 @@
         <repeat>N</repeat>
       </field>
       <field>
-        <name>id_loc</name>
-        <xpath>lloc_simple/id</xpath>
-        <element_type>node</element_type>
-        <result_type>valueof</result_type>
-        <type>Integer</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-        <repeat>N</repeat>
-      </field>
-      <field>
         <name>nom_loc</name>
-        <xpath>lloc_simple/nom</xpath>
+        <xpath>nom</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -587,7 +568,7 @@
       </field>
       <field>
         <name>seccio</name>
-        <xpath>lloc_simple/seccio</xpath>
+        <xpath>seccio</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -602,7 +583,7 @@
       </field>
       <field>
         <name>carrer</name>
-        <xpath>lloc_simple/adreca_simple/carrer</xpath>
+        <xpath>adreca_simple/carrer</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -617,7 +598,7 @@
       </field>
       <field>
         <name>numero</name>
-        <xpath>lloc_simple/adreca_simple/numero</xpath>
+        <xpath>adreca_simple/numero</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>Integer</type>
@@ -632,7 +613,7 @@
       </field>
       <field>
         <name>districte</name>
-        <xpath>lloc_simple/adreca_simple/districte</xpath>
+        <xpath>adreca_simple/districte</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -647,7 +628,7 @@
       </field>
       <field>
         <name>codi_postal</name>
-        <xpath>lloc_simple/adreca_simple/codi_postal</xpath>
+        <xpath>adreca_simple/codi_postal</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>Integer</type>
@@ -662,7 +643,7 @@
       </field>
       <field>
         <name>municipi</name>
-        <xpath>lloc_simple/adreca_simple/municipi</xpath>
+        <xpath>adreca_simple/municipi</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>String</type>
@@ -677,7 +658,7 @@
       </field>
       <field>
         <name>longitud</name>
-        <xpath>lloc_simple/adreca_simple/coordenades/geocodificacio/@x</xpath>
+        <xpath>adreca_simple/coordenades/geocodificacio/@x</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>Number</type>
@@ -692,7 +673,7 @@
       </field>
       <field>
         <name>latitud</name>
-        <xpath>lloc_simple/adreca_simple/coordenades/geocodificacio/@y</xpath>
+        <xpath>adreca_simple/coordenades/geocodificacio/@y</xpath>
         <element_type>node</element_type>
         <result_type>valueof</result_type>
         <type>Number</type>
@@ -707,7 +688,7 @@
       </field>
     </fields>
     <limit>0</limit>
-    <loopxpath>/response/body/resultat/actes/acte</loopxpath>
+    <loopxpath>/response/body/resultat/actes/acte/lloc_simple</loopxpath>
     <IsInFields>N</IsInFields>
     <IsAFile>N</IsAFile>
     <XmlField>filename</XmlField>
@@ -728,8 +709,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>224</xloc>
-      <yloc>160</yloc>
+      <xloc>144</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -744,7 +725,7 @@
       <method>none</method>
       <schema_name />
     </partitioning>
-    <send_true_to>Insertar / Actualizar D_UBICACION_EVENTO</send_true_to>
+    <send_true_to>Carga D_Ubicacion_Evento</send_true_to>
     <send_false_to />
     <compare>
       <condition>
@@ -792,86 +773,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>592</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insertar / Actualizar D_UBICACION_EVENTO</name>
-    <type>InsertUpdate</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>COA</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema>coa</schema>
-      <table>d_ubicacion_evento</table>
-      <key>
-        <name>id_evento</name>
-        <field>id_evento</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <key>
-        <name>id_distrito</name>
-        <field>id_distrito</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>nombre</name>
-        <rename>nom_loc</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>calle</name>
-        <rename>carrer</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>numero</name>
-        <rename>numero</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>id_evento</name>
-        <rename>id_evento</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>id_distrito</name>
-        <rename>id_distrito</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>latitud</name>
-        <rename>latitud</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>longitud</name>
-        <rename>longitud</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>592</xloc>
-      <yloc>160</yloc>
+      <xloc>544</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -917,14 +820,14 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>272</yloc>
+      <xloc>336</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Obtener ID_Evento</name>
-    <type>DBLookup</type>
+    <name>Carga D_Ubicacion_Evento</name>
+    <type>InsertUpdate</type>
     <description />
     <distribute>Y</distribute>
     <custom_distribution />
@@ -934,26 +837,51 @@
       <schema_name />
     </partitioning>
     <connection>COA</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>coa</schema>
-      <table>d_evento</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
+      <table>d_ubicacion_evento</table>
       <key>
         <name>id</name>
-        <field>id_evento_orig</field>
+        <field>id_ubicacion_original</field>
         <condition>=</condition>
         <name2 />
       </key>
       <value>
-        <name>id_evento</name>
-        <rename>id_evento</rename>
-        <default />
-        <type>None</type>
+        <name>id_ubicacion_original</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>nombre</name>
+        <rename>nom_loc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>calle</name>
+        <rename>carrer</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>numero</name>
+        <rename>numero</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>longitud</name>
+        <rename>longitud</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>latitud</name>
+        <rename>latitud</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>id_distrito</name>
+        <rename>id_distrito</rename>
+        <update>Y</update>
       </value>
     </lookup>
     <cluster_schema />
@@ -964,8 +892,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>384</xloc>
-      <yloc>160</yloc>
+      <xloc>752</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
