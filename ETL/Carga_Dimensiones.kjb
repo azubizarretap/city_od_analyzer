@@ -349,8 +349,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>368</xloc>
-      <yloc>64</yloc>
+      <xloc>464</xloc>
+      <yloc>32</yloc>
     </entry>
     <entry>
       <name>Carga D_BARRIO</name>
@@ -385,8 +385,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>560</xloc>
-      <yloc>64</yloc>
+      <xloc>656</xloc>
+      <yloc>32</yloc>
     </entry>
     <entry>
       <name>Carga D_ESTACION_BICING</name>
@@ -421,8 +421,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>352</xloc>
-      <yloc>304</yloc>
+      <xloc>464</xloc>
+      <yloc>352</yloc>
     </entry>
     <entry>
       <name>Carga D_TRANSPORTE</name>
@@ -457,8 +457,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>576</xloc>
-      <yloc>304</yloc>
+      <xloc>688</xloc>
+      <yloc>352</yloc>
     </entry>
     <entry>
       <name>Carga D_NIVEL_EVENTO</name>

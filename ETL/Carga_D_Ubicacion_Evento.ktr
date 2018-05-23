@@ -522,8 +522,14 @@
       <schema>coa</schema>
       <table>d_ubicacion_evento</table>
       <key>
-        <name>id</name>
-        <field>id_ubicacion_orig</field>
+        <name>nom_loc</name>
+        <field>nombre</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>carrer</name>
+        <field>calle</field>
         <condition>=</condition>
         <name2 />
       </key>
@@ -833,13 +839,6 @@
               <isnull>Y</isnull>
               <mask>####0.0#########;-####0.0#########</mask>
             </value>
-          </condition>
-          <condition>
-            <negated>N</negated>
-            <operator>AND</operator>
-            <leftvalue>id</leftvalue>
-            <function>IS NOT NULL</function>
-            <rightvalue />
           </condition>
         </conditions>
       </condition>
