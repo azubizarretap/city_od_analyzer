@@ -505,6 +505,78 @@
     </hop>
   </order>
   <step>
+    <name>Carga D_Ubicacion_Evento</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>COA</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>coa</schema>
+      <table>d_ubicacion_evento</table>
+      <key>
+        <name>id</name>
+        <field>id_ubicacion_orig</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>id_ubicacion_orig</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>nombre</name>
+        <rename>nom_loc</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>calle</name>
+        <rename>carrer</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>numero</name>
+        <rename>numero</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>longitud</name>
+        <rename>longitud</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>latitud</name>
+        <rename>latitud</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>id_distrito</name>
+        <rename>id_distrito</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Cargar Datos XML</name>
     <type>getXMLData</type>
     <description />
@@ -821,78 +893,6 @@
     </remotesteps>
     <GUI>
       <xloc>336</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Carga D_Ubicacion_Evento</name>
-    <type>InsertUpdate</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>COA</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema>coa</schema>
-      <table>d_ubicacion_evento</table>
-      <key>
-        <name>id</name>
-        <field>id_ubicacion_original</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>id_ubicacion_original</name>
-        <rename>id</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>nombre</name>
-        <rename>nom_loc</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>calle</name>
-        <rename>carrer</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>numero</name>
-        <rename>numero</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>longitud</name>
-        <rename>longitud</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>latitud</name>
-        <rename>latitud</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>id_distrito</name>
-        <rename>id_distrito</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>752</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
