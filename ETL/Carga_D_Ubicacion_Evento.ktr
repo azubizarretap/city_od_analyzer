@@ -834,6 +834,13 @@
               <mask>####0.0#########;-####0.0#########</mask>
             </value>
           </condition>
+          <condition>
+            <negated>N</negated>
+            <operator>AND</operator>
+            <leftvalue>id</leftvalue>
+            <function>IS NOT NULL</function>
+            <rightvalue />
+          </condition>
         </conditions>
       </condition>
     </compare>
