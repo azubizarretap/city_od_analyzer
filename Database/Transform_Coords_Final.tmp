@@ -31,3 +31,10 @@ SELECT * FROM COA.D_UBICACION_EVENTO WHERE calle LIKE '%Guin%'
 -- Actualizar latitud a WGS84
 --UPDATE COA.D_UBICACION_EVENTO
 --SET latitud = ST_Y(the_geom);
+
+--Consulta D_PARADAS_EVENTO
+--SELECT U.id_ubicacion_evento, U.nombre, P.id_parada,P.id_transporte,P.latitud,P.longitud,T.EQUIPAMIENTO
+--FROM COA.D_UBICACION_EVENTO As U, COA.F_PARADA As P, COA.D_TRANSPORTE T
+--WHERE U.id_ubicacion_evento = 1 AND P.id_transporte=T.id_transporte
+--ORDER BY ST_Distance(U.the_geom,P.the_geom) 
+--LIMIT 5
