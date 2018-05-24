@@ -489,18 +489,38 @@
   </connection>
   <order>
     <hop>
-      <from>Generar_Geometria</from>
-      <to>Esperar a que se genere la geometria</to>
+      <from>Generar_Geometria_Ubicacion_Evento</from>
+      <to>Esperar_Geometria_Ubicacion_Evento</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Esperar a que se genere la geometria</from>
-      <to>Actualizar Lat/Lon a formato WGS84</to>
+      <from>Esperar_Geometria_Ubicacion_Evento</from>
+      <to>Actualizar_Lat/Lon_WGS84_Ubicacion_Evento</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Actualizar_Lat/Lon_WGS84_Ubicacion_Evento</from>
+      <to>Esperar actualizacion WGS84</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Esperar actualizacion WGS84</from>
+      <to>Generar_Geometria_F_Parada</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Generar_Geometria_F_Parada</from>
+      <to>Esperar_Geometria_F_Parada</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Esperar_Geometria_F_Parada</from>
+      <to>Generar_Indices_Geometria</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Actualizar Lat/Lon a formato WGS84</name>
+    <name>Actualizar_Lat/Lon_WGS84_Ubicacion_Evento</name>
     <type>ExecSQL</type>
     <description />
     <distribute>Y</distribute>
@@ -535,13 +555,13 @@ SET latitud = ST_Y(the_geom);</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>112</yloc>
+      <xloc>384</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Esperar a que se genere la geometria</name>
+    <name>Esperar_Geometria_Ubicacion_Evento</name>
     <type>BlockUntilStepsFinish</type>
     <description />
     <distribute>Y</distribute>
@@ -553,7 +573,7 @@ SET latitud = ST_Y(the_geom);</sql>
     </partitioning>
     <steps>
       <step>
-        <name>Generar_Geometria</name>
+        <name>Generar_Geometria_Ubicacion_Evento</name>
         <CopyNr>0</CopyNr>
       </step>
     </steps>
@@ -571,7 +591,7 @@ SET latitud = ST_Y(the_geom);</sql>
     </GUI>
   </step>
   <step>
-    <name>Generar_Geometria</name>
+    <name>Generar_Geometria_Ubicacion_Evento</name>
     <type>ExecSQL</type>
     <description />
     <distribute>Y</distribute>
@@ -604,6 +624,145 @@ SET latitud = ST_Y(the_geom);</sql>
     <GUI>
       <xloc>144</xloc>
       <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Esperar actualizacion WGS84</name>
+    <type>BlockUntilStepsFinish</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <steps>
+      <step>
+        <name>Actualizar_Lat/Lon_WGS84_Ubicacion_Evento</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Generar_Geometria_F_Parada</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>COA</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>UPDATE COA.F_Parada
+SET the_geom = ST_SetSRID(ST_MakePoint(longitud, latitud), 4326);</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Esperar_Geometria_F_Parada</name>
+    <type>BlockUntilStepsFinish</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <steps>
+      <step>
+        <name>Generar_Geometria_F_Parada</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Generar_Indices_Geometria</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>COA</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>CREATE INDEX IDX_D_UBICACION_EVENTO_GEOM
+  ON COA.D_UBICACION_EVENTO USING gist(the_geom);
+
+CREATE INDEX IDX_F_PARADA_GEOM
+  ON COA.F_PARADA USING gist(the_geom);</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>864</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
