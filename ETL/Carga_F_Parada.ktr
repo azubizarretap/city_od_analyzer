@@ -430,7 +430,7 @@
     <created_date>2018/05/18 08:20:40.496</created_date>
     <modified_user>-</modified_user>
     <modified_date>2018/05/18 08:20:40.496</modified_date>
-    <key_for_session_key />
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -488,7 +488,7 @@
   </connection>
   <order>
     <hop>
-      <from>Cargar ficheros CSV</from>
+      <from>Cargar ficheros CSV Transporte Publico</from>
       <to>Filtrar_Valores</to>
       <enabled>Y</enabled>
     </hop>
@@ -509,7 +509,7 @@
     </hop>
   </order>
   <step>
-    <name>Cargar ficheros CSV</name>
+    <name>Cargar ficheros CSV Transporte Publico</name>
     <type>TextFileInput</type>
     <description />
     <distribute>Y</distribute>
@@ -832,7 +832,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
+      <xloc>128</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -851,19 +851,15 @@
     <fields>
       <field>
         <name>LONGITUD</name>
-        <rename />
       </field>
       <field>
         <name>LATITUD</name>
-        <rename />
       </field>
       <field>
         <name>EQUIPAMENT</name>
-        <rename />
       </field>
       <field>
         <name>BARRI</name>
-        <rename />
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -876,100 +872,6 @@
     </remotesteps>
     <GUI>
       <xloc>320</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Obtener ID_Transporte</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>COA</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>coa</schema>
-      <table>d_transporte</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>EQUIPAMENT</name>
-        <field>equipamiento</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>id_transporte</name>
-        <rename>id_transporte</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>480</xloc>
-      <yloc>192</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Obtener ID_Barrio</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>COA</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>coa</schema>
-      <table>d_barrio</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>BARRI</name>
-        <field>id_barrio</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>id_barrio</name>
-        <rename>id_barrio</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>624</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1033,6 +935,100 @@
     </remotesteps>
     <GUI>
       <xloc>768</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Obtener ID_Barrio</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>COA</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>coa</schema>
+      <table>d_barrio</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>BARRI</name>
+        <field>id_barrio</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>id_barrio</name>
+        <rename>id_barrio</rename>
+        <default />
+        <type>None</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Obtener ID_Transporte</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>COA</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>coa</schema>
+      <table>d_transporte</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>EQUIPAMENT</name>
+        <field>equipamiento</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>id_transporte</name>
+        <rename>id_transporte</rename>
+        <default />
+        <type>None</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
