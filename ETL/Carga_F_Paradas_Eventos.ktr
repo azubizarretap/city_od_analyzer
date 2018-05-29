@@ -489,13 +489,33 @@
   </connection>
   <order>
     <hop>
-      <from>Leer_ID_Ubicacion_Evento</from>
-      <to>Cargar_Ubicaciones_D_PARADAS_EVENTO</to>
+      <from>Cargar_Ubicaciones_F_PARADAS_EVENTOS</from>
+      <to>Eliminar_Paradas_Sin_Evento</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Eliminar_Paradas_Sin_Evento</from>
+      <to>Esperar a que finalice la carga en F_PARADAS_EVENTOS</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Esperar a que finalice la carga en F_PARADAS_EVENTOS</from>
+      <to>Leer_ID_Paradas_Eventos</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Leer_ID_Paradas_Eventos</from>
+      <to>Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by</from>
+      <to>Insert / Update</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name>Cargar_Ubicaciones_D_PARADAS_EVENTO</name>
+    <name>Cargar_Ubicaciones_F_PARADAS_EVENTOS</name>
     <type>ExecSQL</type>
     <description />
     <distribute>Y</distribute>
@@ -506,25 +526,21 @@
       <schema_name />
     </partitioning>
     <connection>COA</connection>
-    <execute_each_row>Y</execute_each_row>
+    <execute_each_row>N</execute_each_row>
     <single_statement>N</single_statement>
     <replace_variables>N</replace_variables>
     <quoteString>N</quoteString>
-    <sql>INSERT INTO COA.D_PARADAS_EVENTO (id_ubicacion_evento,id_parada)
-SELECT U.id_ubicacion_evento, P.id_parada
-FROM COA.D_UBICACION_EVENTO As U, COA.F_PARADA As P
-WHERE U.id_ubicacion_evento = ?
-ORDER BY ST_Distance(U.the_geom,P.the_geom) 
-LIMIT 5;</sql>
+    <sql>INSERT INTO COA.F_PARADAS_EVENTOS (id_ubicacion_evento,id_parada)
+SELECT UE.ID_UBICACION_EVENTO,P.ID_PARADA 
+	FROM COA.D_PARADA P
+		LEFT JOIN COA.D_UBICACION_EVENTO UE ON ST_DWithin(P.the_geom::geography, UE.the_geom::geography, 300)
+	ORDER BY ST_Distance(P.the_geom::geography, UE.the_geom::geography);</sql>
     <set_params>N</set_params>
     <insert_field />
     <update_field />
     <delete_field />
     <read_field />
     <arguments>
-      <argument>
-        <name>id_ubicacion_evento</name>
-      </argument>
     </arguments>
     <cluster_schema />
     <remotesteps>
@@ -534,13 +550,13 @@ LIMIT 5;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>512</xloc>
-      <yloc>208</yloc>
+      <xloc>288</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Leer_ID_Ubicacion_Evento</name>
+    <name>Leer_ID_Paradas_Eventos</name>
     <type>TableInput</type>
     <description />
     <distribute>Y</distribute>
@@ -551,7 +567,7 @@ LIMIT 5;</sql>
       <schema_name />
     </partitioning>
     <connection>COA</connection>
-    <sql>SELECT ID_UBICACION_EVENTO FROM COA.D_UBICACION_EVENTO;</sql>
+    <sql>SELECT * FROM COA.F_PARADAS_EVENTOS;</sql>
     <limit>0</limit>
     <lookup />
     <execute_each_row>N</execute_each_row>
@@ -565,8 +581,151 @@ LIMIT 5;</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>240</xloc>
-      <yloc>208</yloc>
+      <xloc>784</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Eliminar_Paradas_Sin_Evento</name>
+    <type>ExecSQL</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>COA</connection>
+    <execute_each_row>N</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>N</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>DELETE FROM COA.F_PARADAS_EVENTOS WHERE id_ubicacion_evento IS NULL;</sql>
+    <set_params>N</set_params>
+    <insert_field />
+    <update_field />
+    <delete_field />
+    <read_field />
+    <arguments>
+    </arguments>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Esperar a que finalice la carga en F_PARADAS_EVENTOS</name>
+    <type>BlockUntilStepsFinish</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <steps>
+      <step>
+        <name>Eliminar_Paradas_Sin_Evento</name>
+        <CopyNr>0</CopyNr>
+      </step>
+    </steps>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / Update</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection />
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema />
+      <table>lookup table</table>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Group by</name>
+    <type>GroupBy</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <all_rows>N</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore />
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname />
+    <give_back_row>N</give_back_row>
+    <group>
+      <field>
+        <name>id_parada</name>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>num_eventos</aggregate>
+        <subject>id_ubicacion_evento</subject>
+        <type>SUM</type>
+        <valuefield />
+      </field>
+    </fields>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
