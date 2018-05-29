@@ -307,12 +307,12 @@
       <yloc>128</yloc>
     </entry>
     <entry>
-      <name>Carga_D_PARADAS_EVENTO</name>
+      <name>Carga_F_PARADAS_EVENTOS</name>
       <description />
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id />
-      <filename>/home/aitzol/TFM/Trabajo/city_od_analyzer/ETL/Carga_D_Paradas_Evento.ktr</filename>
+      <filename>/home/aitzol/TFM/Trabajo/city_od_analyzer/ETL/Carga_F_Paradas_Eventos.ktr</filename>
       <transname />
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -367,7 +367,7 @@
   <hops>
     <hop>
       <from>START</from>
-      <to>Carga_D_PARADAS_EVENTO</to>
+      <to>Carga_F_PARADAS_EVENTOS</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -375,7 +375,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Carga_D_PARADAS_EVENTO</from>
+      <from>Carga_F_PARADAS_EVENTOS</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -384,7 +384,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Carga_D_PARADAS_EVENTO</from>
+      <from>Carga_F_PARADAS_EVENTOS</from>
       <to>Abort job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
