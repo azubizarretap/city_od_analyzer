@@ -610,7 +610,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id />
-      <filename>${Internal.Entry.Current.Directory}/Carga_F_Parada_Transporte.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/Carga_D_Parada_Transporte.ktr</filename>
       <transname />
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -646,7 +646,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id />
-      <filename>${Internal.Entry.Current.Directory}/Carga_F_Parada_Bicing.ktr</filename>
+      <filename>${Internal.Entry.Current.Directory}/Carga_D_Parada_Bicing.ktr</filename>
       <transname />
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
