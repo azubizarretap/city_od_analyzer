@@ -495,7 +495,7 @@
     </hop>
     <hop>
       <from>Buscar_ID_Transporte</from>
-      <to>Insertar_F_PARADA</to>
+      <to>Insertar_D_PARADA</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -745,7 +745,7 @@
     </GUI>
   </step>
   <step>
-    <name>Insertar_F_PARADA</name>
+    <name>Insertar_D_PARADA</name>
     <type>InsertUpdate</type>
     <description />
     <distribute>Y</distribute>
@@ -760,7 +760,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>coa</schema>
-      <table>f_parada</table>
+      <table>d_parada</table>
       <key>
         <name>id_transporte</name>
         <field>id_transporte</field>

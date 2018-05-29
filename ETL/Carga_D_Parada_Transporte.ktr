@@ -505,7 +505,7 @@
     </hop>
     <hop>
       <from>Obtener ID_Barrio</from>
-      <to>Insertar / Actualizar F_Parada</to>
+      <to>Insertar / Actualizar D_Parada</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -878,7 +878,7 @@
     </GUI>
   </step>
   <step>
-    <name>Insertar / Actualizar F_Parada</name>
+    <name>Insertar / Actualizar D_Parada</name>
     <type>InsertUpdate</type>
     <description />
     <distribute>Y</distribute>
@@ -893,7 +893,7 @@
     <update_bypassed>N</update_bypassed>
     <lookup>
       <schema>coa</schema>
-      <table>f_parada</table>
+      <table>d_parada</table>
       <key>
         <name>LATITUD</name>
         <field>latitud</field>
