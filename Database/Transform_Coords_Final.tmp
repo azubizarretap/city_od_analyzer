@@ -38,3 +38,10 @@ SELECT * FROM COA.D_UBICACION_EVENTO WHERE calle LIKE '%Guin%'
 --WHERE U.id_ubicacion_evento = 1 AND P.id_transporte=T.id_transporte
 --ORDER BY ST_Distance(U.the_geom,P.the_geom) 
 --LIMIT 5
+
+/*
+SELECT P.ID_PARADA, UE.ID_UBICACION_EVENTO
+	FROM COA.D_PARADA P
+		LEFT JOIN COA.D_UBICACION_EVENTO UE ON ST_DWithin(P.the_geom::geography, UE.the_geom::geography, 300)
+	ORDER BY ST_Distance(P.the_geom::geography, UE.the_geom::geography);
+*/
