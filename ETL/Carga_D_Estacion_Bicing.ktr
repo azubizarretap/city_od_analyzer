@@ -510,6 +510,53 @@
     </hop>
   </order>
   <step>
+    <name>Buscar Tipo Transporte</name>
+    <type>DBLookup</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>COA</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema>coa</schema>
+      <table>a_tipo_transporte</table>
+      <orderby />
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>type</name>
+        <field>nombre</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>id_tipo_transporte</name>
+        <rename>id_tipo_transporte</rename>
+        <default />
+        <type>None</type>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>720</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Carga JSON Bicing</name>
     <type>JsonInput</type>
     <description />
@@ -531,7 +578,7 @@
     <ignoreMissingPath>Y</ignoreMissingPath>
     <rownum_field />
     <file>
-      <name>/home/aitzol/TFM/Datasets/BICING/</name>
+      <name>${dir_datasets}/BICING/</name>
       <filemask>.+\.json</filemask>
       <exclude_filemask />
       <file_required>N</file_required>
@@ -708,6 +755,58 @@
     </GUI>
   </step>
   <step>
+    <name>Insertar / Actualizar D_Transporte</name>
+    <type>InsertUpdate</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>COA</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema>coa</schema>
+      <table>d_transporte</table>
+      <key>
+        <name>id</name>
+        <field>id_estacion_bicing</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <value>
+        <name>equipamiento</name>
+        <rename>type</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>id_tipo_transporte</name>
+        <rename>id_tipo_transporte</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>id_estacion_bicing</name>
+        <rename>id</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Insertar/Actualizar A_TIPO_TRANSPORTE</name>
     <type>InsertUpdate</type>
     <description />
@@ -807,105 +906,6 @@
     </remotesteps>
     <GUI>
       <xloc>160</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Buscar Tipo Transporte</name>
-    <type>DBLookup</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>COA</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema>coa</schema>
-      <table>a_tipo_transporte</table>
-      <orderby />
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>type</name>
-        <field>nombre</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>id_tipo_transporte</name>
-        <rename>id_tipo_transporte</rename>
-        <default />
-        <type>None</type>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>720</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insertar / Actualizar D_Transporte</name>
-    <type>InsertUpdate</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>COA</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema>coa</schema>
-      <table>d_transporte</table>
-      <key>
-        <name>id</name>
-        <field>id_estacion_bicing</field>
-        <condition>=</condition>
-        <name2 />
-      </key>
-      <value>
-        <name>equipamiento</name>
-        <rename>type</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>id_tipo_transporte</name>
-        <rename>id_tipo_transporte</rename>
-        <update>Y</update>
-      </value>
-      <value>
-        <name>id_estacion_bicing</name>
-        <rename>id</rename>
-        <update>Y</update>
-      </value>
-    </lookup>
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>944</xloc>
       <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>

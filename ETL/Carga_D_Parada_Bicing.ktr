@@ -568,7 +568,7 @@
     <ignoreMissingPath>Y</ignoreMissingPath>
     <rownum_field />
     <file>
-      <name>/home/aitzol/TFM/Datasets/BICING/</name>
+      <name>${dir_datasets}/BICING/</name>
       <filemask>.+\.json</filemask>
       <exclude_filemask />
       <file_required>N</file_required>
