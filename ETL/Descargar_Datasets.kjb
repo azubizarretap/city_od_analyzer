@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <job>
-  <name>Main_Job</name>
+  <name>Descargar_Datasets</name>
   <description />
   <extended_description />
   <job_version />
+  <job_status>0</job_status>
   <directory>/</directory>
   <created_user>-</created_user>
-  <created_date>2018/05/15 15:28:39.711</created_date>
+  <created_date>2018/05/30 15:42:22.841</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2018/05/15 15:28:39.711</modified_date>
+  <modified_date>2018/05/30 15:42:22.841</modified_date>
   <parameters>
     </parameters>
   <slaveservers>
@@ -303,8 +304,36 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>80</xloc>
-      <yloc>96</yloc>
+      <xloc>144</xloc>
+      <yloc>176</yloc>
+    </entry>
+    <entry>
+      <name>Descargar Transportes</name>
+      <description />
+      <type>HTTP</type>
+      <url>http://opendata-ajuntament.barcelona.cat/data/dataset/e0c34739-823f-470d-8045-e10f28e80f2d/resource/e07dec0d-4aeb-40f3-b987-e1f35e088ce2/download</url>
+      <targetfilename>${dir_datasets}/TRANSPORTES/Transportes.csv</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extension>csv</targetfilename_extension>
+      <uploadfilename />
+      <run_every_row>N</run_every_row>
+      <url_fieldname />
+      <upload_fieldname />
+      <dest_fieldname />
+      <username />
+      <password>Encrypted </password>
+      <proxy_host />
+      <proxy_port />
+      <non_proxy_hosts />
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>320</xloc>
+      <yloc>176</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -313,195 +342,146 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1040</xloc>
-      <yloc>96</yloc>
+      <xloc>1232</xloc>
+      <yloc>176</yloc>
     </entry>
     <entry>
-      <name>Carga Dimensiones</name>
+      <name>Descargar Bus</name>
       <description />
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id />
-      <filename>${Internal.Entry.Current.Directory}/Carga_Dimensiones.kjb</filename>
-      <jobname />
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name />
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
+      <type>HTTP</type>
+      <url>http://opendata-ajuntament.barcelona.cat/data/dataset/e0c34739-823f-470d-8045-e10f28e80f2d/resource/e07dec0d-4aeb-40f3-b987-e1f35e088ce2/download</url>
+      <targetfilename>${dir_datasets}/TRANSPORTES/Bus.csv</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extension>csv</targetfilename_extension>
+      <uploadfilename />
+      <run_every_row>N</run_every_row>
+      <url_fieldname />
+      <upload_fieldname />
+      <dest_fieldname />
+      <username />
+      <password>Encrypted </password>
+      <proxy_host />
+      <proxy_port />
+      <non_proxy_hosts />
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>512</xloc>
-      <yloc>96</yloc>
+      <yloc>176</yloc>
     </entry>
     <entry>
-      <name>Job Fallido</name>
+      <name>Descargar Distritos_Barrios</name>
+      <description />
+      <type>HTTP</type>
+      <url>http://opendata-ajuntament.barcelona.cat/data/dataset/808daafa-d9ce-48c0-925a-fa5afdb1ed41/resource/4cc59b76-a977-40ac-8748-61217c8ff367/download/districtes_i_barris_170705.csv</url>
+      <targetfilename>${dir_datasets}/DISTRITOS_BARRIOS/Distritos_Barrios.csv</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extension>csv</targetfilename_extension>
+      <uploadfilename />
+      <run_every_row>N</run_every_row>
+      <url_fieldname />
+      <upload_fieldname />
+      <dest_fieldname />
+      <username />
+      <password>Encrypted </password>
+      <proxy_host />
+      <proxy_port />
+      <non_proxy_hosts />
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>704</xloc>
+      <yloc>176</yloc>
+    </entry>
+    <entry>
+      <name>Descargar Eventos</name>
+      <description />
+      <type>HTTP</type>
+      <url>http://opendata-ajuntament.barcelona.cat/data/dataset/a25e60cd-3083-4252-9fce-81f733871cb1/resource/4613b701-b534-4f78-9264-1ffa11cacdef/download</url>
+      <targetfilename>${dir_datasets}/EVENTOS/Eventos.xml</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extension>xml</targetfilename_extension>
+      <uploadfilename />
+      <run_every_row>N</run_every_row>
+      <url_fieldname />
+      <upload_fieldname />
+      <dest_fieldname />
+      <username />
+      <password>Encrypted </password>
+      <proxy_host />
+      <proxy_port />
+      <non_proxy_hosts />
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>896</xloc>
+      <yloc>176</yloc>
+    </entry>
+    <entry>
+      <name>Descargar Estaciones Bicing</name>
+      <description />
+      <type>HTTP</type>
+      <url>http://opendata-ajuntament.barcelona.cat/data/dataset/fa94d2f3-3428-47b8-9f2b-f1e4423e745a/resource/62c0c9cf-c104-4105-8e0d-6f483d39c0b2/download</url>
+      <targetfilename>${dir_datasets}/BICING/Estacion_Bicing.json</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extension>json</targetfilename_extension>
+      <uploadfilename />
+      <run_every_row>N</run_every_row>
+      <url_fieldname />
+      <upload_fieldname />
+      <dest_fieldname />
+      <username />
+      <password>Encrypted </password>
+      <proxy_host />
+      <proxy_port />
+      <non_proxy_hosts />
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1072</xloc>
+      <yloc>176</yloc>
+    </entry>
+    <entry>
+      <name>Abort job</name>
       <description />
       <type>ABORT</type>
       <message />
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>608</xloc>
-      <yloc>272</yloc>
-    </entry>
-    <entry>
-      <name>Obtener_Info_GIS</name>
-      <description />
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id />
-      <filename>${Internal.Entry.Current.Directory}/Obtener_Info_GIS.kjb</filename>
-      <jobname />
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name />
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>688</xloc>
-      <yloc>96</yloc>
-    </entry>
-    <entry>
-      <name>Carga_Info_Eventos_Paradas</name>
-      <description />
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id />
-      <filename>${Internal.Entry.Current.Directory}/Carga_Info_Eventos_Paradas.kjb</filename>
-      <jobname />
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name />
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>864</xloc>
-      <yloc>96</yloc>
-    </entry>
-    <entry>
-      <name>Definir_Variables_Globales</name>
-      <description />
-      <type>SET_VARIABLES</type>
-      <replacevars>Y</replacevars>
-      <filename />
-      <file_variable_type>JVM</file_variable_type>
-      <fields>
-        <field>
-          <variable_name>dir_datasets</variable_name>
-          <variable_value>/home/aitzol/TFM/Trabajo/city_od_analyzer/Datasets/</variable_value>
-          <variable_type>JVM</variable_type>
-        </field>
-      </fields>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>240</xloc>
-      <yloc>96</yloc>
-    </entry>
-    <entry>
-      <name>Descargar Datasets</name>
-      <description />
-      <type>JOB</type>
-      <specification_method>filename</specification_method>
-      <job_object_id />
-      <filename>${Internal.Entry.Current.Directory}/Descargar_Datasets.kjb</filename>
-      <jobname />
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name />
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <parameters>
-        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>
-      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>384</xloc>
-      <yloc>96</yloc>
+      <xloc>704</xloc>
+      <yloc>336</yloc>
     </entry>
   </entries>
   <hops>
     <hop>
-      <from>Carga Dimensiones</from>
-      <to>Job Fallido</to>
+      <from>START</from>
+      <to>Descargar Transportes</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>Obtener_Info_GIS</from>
-      <to>Job Fallido</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>N</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Obtener_Info_GIS</from>
-      <to>Carga_Info_Eventos_Paradas</to>
+      <from>Descargar Transportes</from>
+      <to>Descargar Bus</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -509,7 +489,34 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Carga_Info_Eventos_Paradas</from>
+      <from>Descargar Bus</from>
+      <to>Descargar Distritos_Barrios</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Distritos_Barrios</from>
+      <to>Descargar Eventos</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Eventos</from>
+      <to>Descargar Estaciones Bicing</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Estaciones Bicing</from>
       <to>Success</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -518,8 +525,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Carga_Info_Eventos_Paradas</from>
-      <to>Job Fallido</to>
+      <from>Descargar Transportes</from>
+      <to>Abort job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -527,44 +534,35 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Carga Dimensiones</from>
-      <to>Obtener_Info_GIS</to>
+      <from>Descargar Bus</from>
+      <to>Abort job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>START</from>
-      <to>Definir_Variables_Globales</to>
+      <from>Descargar Distritos_Barrios</from>
+      <to>Abort job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Definir_Variables_Globales</from>
-      <to>Descargar Datasets</to>
+      <from>Descargar Eventos</from>
+      <to>Abort job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
+      <evaluation>N</evaluation>
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Descargar Datasets</from>
-      <to>Carga Dimensiones</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>N</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Descargar Datasets</from>
-      <to>Job Fallido</to>
+      <from>Descargar Estaciones Bicing</from>
+      <to>Abort job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
