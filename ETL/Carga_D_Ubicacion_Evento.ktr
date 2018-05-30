@@ -607,7 +607,7 @@
     <rownum_field />
     <encoding>ISO-8859-1</encoding>
     <file>
-      <name>/home/aitzol/TFM/Datasets/EVENTOS/</name>
+      <name>${dir_datasets}/EVENTOS/</name>
       <filemask>.+\.xml</filemask>
       <exclude_filemask />
       <file_required>N</file_required>
