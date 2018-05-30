@@ -164,7 +164,7 @@ WHERE
 	AND B.ID_DISTRITO = D.ID_DISTRITO;
 
 CREATE OR REPLACE VIEW COA.V_EVENTOS_BARRIO_DISTRITO AS
-SELECT	DISTINCT E.Nombre As Nombre ,UE.Latitud As Latitud,UE.Longitud As Longitud, B.Nombre As Barrio, D.Nombre As Distrito
+SELECT	DISTINCT E.Nombre As Nombre ,UE.Latitud As Latitud,UE.Longitud As Longitud, B.Nombre As Barrio, D.Nombre As Distrito, E.Tipo_Evento As Tipo
 FROM
 	COA.D_EVENTO E,
 	COA.D_UBICACIONES_EVENTOS UES,
