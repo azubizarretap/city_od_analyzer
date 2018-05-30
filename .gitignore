@@ -1,0 +1,4 @@
+#Ignorar extensiones de datasets
+*.csv
+*.xml
+*.json
