@@ -439,6 +439,11 @@
           <variable_value>/home/aitzol/TFM/Trabajo/city_od_analyzer/Datasets/</variable_value>
           <variable_type>JVM</variable_type>
         </field>
+        <field>
+          <variable_name>tipo_descarga_evento</variable_name>
+          <variable_value>Mensual</variable_value>
+          <variable_type>JVM</variable_type>
+        </field>
       </fields>
       <parallel>N</parallel>
       <draw>Y</draw>

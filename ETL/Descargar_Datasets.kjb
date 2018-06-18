@@ -304,8 +304,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>144</xloc>
-      <yloc>176</yloc>
+      <xloc>176</xloc>
+      <yloc>144</yloc>
     </entry>
     <entry>
       <name>Descargar Transportes</name>
@@ -332,8 +332,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>320</xloc>
-      <yloc>176</yloc>
+      <xloc>336</xloc>
+      <yloc>32</yloc>
     </entry>
     <entry>
       <name>Success</name>
@@ -342,8 +342,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1232</xloc>
-      <yloc>176</yloc>
+      <xloc>1024</xloc>
+      <yloc>160</yloc>
     </entry>
     <entry>
       <name>Descargar Bus</name>
@@ -370,8 +370,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>512</xloc>
-      <yloc>176</yloc>
+      <xloc>336</xloc>
+      <yloc>144</yloc>
     </entry>
     <entry>
       <name>Descargar Distritos_Barrios</name>
@@ -398,11 +398,11 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>704</xloc>
-      <yloc>176</yloc>
+      <xloc>336</xloc>
+      <yloc>272</yloc>
     </entry>
     <entry>
-      <name>Descargar Eventos</name>
+      <name>Descargar Eventos Diario</name>
       <description />
       <type>HTTP</type>
       <url>http://opendata-ajuntament.barcelona.cat/data/dataset/a25e60cd-3083-4252-9fce-81f733871cb1/resource/4613b701-b534-4f78-9264-1ffa11cacdef/download</url>
@@ -426,8 +426,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>896</xloc>
-      <yloc>176</yloc>
+      <xloc>704</xloc>
+      <yloc>272</yloc>
     </entry>
     <entry>
       <name>Descargar Estaciones Bicing</name>
@@ -454,8 +454,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>1072</xloc>
-      <yloc>176</yloc>
+      <xloc>1024</xloc>
+      <yloc>272</yloc>
     </entry>
     <entry>
       <name>Abort job</name>
@@ -466,19 +466,181 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>704</xloc>
+      <yloc>16</yloc>
+    </entry>
+    <entry>
+      <name>Descargar_Diario_o_Semanal</name>
+      <description />
+      <type>SIMPLE_EVAL</type>
+      <valuetype>variable</valuetype>
+      <fieldname />
+      <variablename>${tipo_descarga_evento}</variablename>
+      <fieldtype>string</fieldtype>
+      <mask />
+      <comparevalue>Diario</comparevalue>
+      <minvalue />
+      <maxvalue />
+      <successcondition>equal</successcondition>
+      <successnumbercondition>equal</successnumbercondition>
+      <successbooleancondition>false</successbooleancondition>
+      <successwhenvarset>N</successwhenvarset>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>512</xloc>
+      <yloc>272</yloc>
+    </entry>
+    <entry>
+      <name>Descargar Eventos Mensual 1</name>
+      <description />
+      <type>HTTP</type>
+      <url>http://opendata-ajuntament.barcelona.cat/data/dataset/9fea0b96-f822-40d0-ab7d-864224ef166b/resource/2469d688-6056-48cb-a043-8cd8587f6890/download</url>
+      <targetfilename>${dir_datasets}/EVENTOS/Eventos_Mensual1.xml</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extension>xml</targetfilename_extension>
+      <uploadfilename />
+      <run_every_row>N</run_every_row>
+      <url_fieldname />
+      <upload_fieldname />
+      <dest_fieldname />
+      <username />
+      <password>Encrypted </password>
+      <proxy_host />
+      <proxy_port />
+      <non_proxy_hosts />
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>384</xloc>
+      <yloc>416</yloc>
+    </entry>
+    <entry>
+      <name>Descargar Eventos Mensual 2</name>
+      <description />
+      <type>HTTP</type>
+      <url>http://opendata-ajuntament.barcelona.cat/data/dataset/9fea0b96-f822-40d0-ab7d-864224ef166b/resource/e5d6d76e-d458-4950-87b0-ad30976bcc09/download</url>
+      <targetfilename>${dir_datasets}/EVENTOS/Eventos_Mensual2.xml</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extension>xml</targetfilename_extension>
+      <uploadfilename />
+      <run_every_row>N</run_every_row>
+      <url_fieldname />
+      <upload_fieldname />
+      <dest_fieldname />
+      <username />
+      <password>Encrypted </password>
+      <proxy_host />
+      <proxy_port />
+      <non_proxy_hosts />
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>608</xloc>
+      <yloc>416</yloc>
+    </entry>
+    <entry>
+      <name>Descargar Eventos Mensual 3</name>
+      <description />
+      <type>HTTP</type>
+      <url>http://opendata-ajuntament.barcelona.cat/data/dataset/9fea0b96-f822-40d0-ab7d-864224ef166b/resource/e2dedc16-e104-40e0-b156-98ad39be58d7/download</url>
+      <targetfilename>${dir_datasets}/EVENTOS/Eventos_Mensual3.xml</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extension>xml</targetfilename_extension>
+      <uploadfilename />
+      <run_every_row>N</run_every_row>
+      <url_fieldname />
+      <upload_fieldname />
+      <dest_fieldname />
+      <username />
+      <password>Encrypted </password>
+      <proxy_host />
+      <proxy_port />
+      <non_proxy_hosts />
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>816</xloc>
+      <yloc>416</yloc>
+    </entry>
+    <entry>
+      <name>Descargar Eventos Mensual 4</name>
+      <description />
+      <type>HTTP</type>
+      <url>http://opendata-ajuntament.barcelona.cat/data/dataset/9fea0b96-f822-40d0-ab7d-864224ef166b/resource/eb8a3bbd-8277-4723-ae49-518046e0693b/download</url>
+      <targetfilename>${dir_datasets}/EVENTOS/Eventos_Mensual4.xml</targetfilename>
+      <file_appended>N</file_appended>
+      <date_time_added>N</date_time_added>
+      <targetfilename_extension>xml</targetfilename_extension>
+      <uploadfilename />
+      <run_every_row>N</run_every_row>
+      <url_fieldname />
+      <upload_fieldname />
+      <dest_fieldname />
+      <username />
+      <password>Encrypted </password>
+      <proxy_host />
+      <proxy_port />
+      <non_proxy_hosts />
+      <addfilenameresult>Y</addfilenameresult>
+      <headers>
+      </headers>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>1024</xloc>
+      <yloc>416</yloc>
+    </entry>
+    <entry>
+      <name>Abort job 2</name>
+      <description />
+      <type>ABORT</type>
+      <message />
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>720</xloc>
       <yloc>336</yloc>
+    </entry>
+    <entry>
+      <name>Eliminar ficheros existentes</name>
+      <description />
+      <type>DELETE_FILES</type>
+      <arg_from_previous>N</arg_from_previous>
+      <include_subfolders>Y</include_subfolders>
+      <fields>
+        <field>
+          <name>${dir_datasets}/EVENTOS/</name>
+          <filemask>.+\.xml</filemask>
+        </field>
+        <field>
+          <name>${dir_datasets}/EVENTOS/</name>
+          <filemask>.+\.json</filemask>
+        </field>
+        <field>
+          <name>${dir_datasets}/EVENTOS/</name>
+          <filemask>.+\.csv</filemask>
+        </field>
+      </fields>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>0</nr>
+      <xloc>176</xloc>
+      <yloc>32</yloc>
     </entry>
   </entries>
   <hops>
-    <hop>
-      <from>START</from>
-      <to>Descargar Transportes</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
     <hop>
       <from>Descargar Transportes</from>
       <to>Descargar Bus</to>
@@ -498,16 +660,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Descargar Distritos_Barrios</from>
-      <to>Descargar Eventos</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>Descargar Eventos</from>
+      <from>Descargar Eventos Diario</from>
       <to>Descargar Estaciones Bicing</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -552,7 +705,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Descargar Eventos</from>
+      <from>Descargar Eventos Diario</from>
       <to>Abort job</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -567,6 +720,123 @@
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Distritos_Barrios</from>
+      <to>Descargar_Diario_o_Semanal</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar_Diario_o_Semanal</from>
+      <to>Descargar Eventos Diario</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar_Diario_o_Semanal</from>
+      <to>Descargar Eventos Mensual 1</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Eventos Mensual 1</from>
+      <to>Descargar Eventos Mensual 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Eventos Mensual 2</from>
+      <to>Descargar Eventos Mensual 3</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Eventos Mensual 3</from>
+      <to>Descargar Eventos Mensual 4</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Eventos Mensual 4</from>
+      <to>Descargar Estaciones Bicing</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Eventos Mensual 1</from>
+      <to>Abort job 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Eventos Mensual 2</from>
+      <to>Abort job 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Eventos Mensual 3</from>
+      <to>Abort job 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Descargar Eventos Mensual 4</from>
+      <to>Abort job 2</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>N</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>START</from>
+      <to>Eliminar ficheros existentes</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>Y</unconditional>
+    </hop>
+    <hop>
+      <from>Eliminar ficheros existentes</from>
+      <to>Descargar Transportes</to>
+      <from_nr>0</from_nr>
+      <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
   </hops>
