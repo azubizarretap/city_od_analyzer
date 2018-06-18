@@ -896,6 +896,16 @@
         <rename>status</rename>
         <update>Y</update>
       </value>
+      <value>
+        <name>calle</name>
+        <rename>streetName</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_calle</name>
+        <rename>streetNumber</rename>
+        <update>Y</update>
+      </value>
     </lookup>
     <cluster_schema />
     <remotesteps>
