@@ -172,6 +172,7 @@ WHERE
 	AND T.ID_ESTACION_BICING = EB.ID_ESTACION_BICING
 	AND T.ID_TIPO_TRANSPORTE = AT.ID_TIPO_TRANSPORTE;
 
+--Generamos vista con la informacion de eventos por cada barrio o distrito
 CREATE OR REPLACE VIEW COA.V_EVENTOS_BARRIO_DISTRITO AS
 SELECT	DISTINCT E.Nombre As Nombre ,UE.Latitud As Latitud,UE.Longitud As Longitud, B.Nombre As Barrio, D.Nombre As Distrito, E.Tipo_Evento As Tipo
 FROM
@@ -186,6 +187,22 @@ WHERE
 	AND UE.ID_DISTRITO = D.ID_DISTRITO
 	AND D.ID_DISTRITO = B.ID_DISTRITO;
 
+--Generamos vista con la informacion de eventos por cada barrio o distrito con filtrado de fechas
+CREATE OR REPLACE VIEW COA.V_EVENTOS_BARRIO_DISTRITO_Y_FECHA AS
+SELECT	DISTINCT E.Nombre As Nombre ,UE.Latitud As Latitud,UE.Longitud As Longitud, B.Nombre As Barrio, D.Nombre As Distrito, E.Tipo_Evento As Tipo, E.Fecha_inicio
+FROM
+	COA.D_EVENTO E,
+	COA.D_UBICACIONES_EVENTOS UES,
+	COA.D_UBICACION_EVENTO UE,
+	COA.D_DISTRITO D,
+	COA.D_BARRIO B
+WHERE
+	E.ID_EVENTO = UES.ID_EVENTO
+	AND UES.ID_UBICACION_EVENTO = UE.ID_UBICACION_EVENTO
+	AND UE.ID_DISTRITO = D.ID_DISTRITO
+	AND D.ID_DISTRITO = B.ID_DISTRITO;
+	
+--Generamos vista con informacion de ubicaciones de estaciones de bicing y eventos
 CREATE OR REPLACE VIEW COA.V_ESTACION_BICING_EVENTO AS
 SELECT	E.ID_Evento As ID, E.Nombre As Nombre ,UE.Latitud As Latitud,UE.Longitud As Longitud, 'Evento' As Tipo
 FROM
@@ -212,6 +229,7 @@ WHERE
 	AND P.ID_TRANSPORTE = T.ID_TRANSPORTE
 	AND PE.ID_PARADA=P.ID_PARADA;
 
+--Generamos vista con informacion de numero de eventos gestionados por cada parada
 CREATE VIEW V_NUMERO_EVENTOS_POR_PARADA AS
 SELECT PE.Num_Eventos As Numero_Eventos,P.Latitud As Latitud, P.Longitud As Longitud, P.ID_Parada As ID, D.Nombre As Distrito
 FROM
@@ -223,3 +241,22 @@ WHERE
 	PE.ID_PARADA = P.ID_PARADA
 	AND P.ID_BARRIO = B.ID_BARRIO
 	AND B.ID_DISTRITO = D.ID_DISTRITO;
+
+--Generamos vista con informacion de numero de eventos gestionados por cada parada con filtrado por fecha
+CREATE VIEW V_NUMERO_EVENTOS_POR_PARADA_Y_FECHA AS
+SELECT PE.Num_Eventos As Numero_Eventos,P.Latitud As Latitud, P.Longitud As Longitud, P.ID_Parada As ID, D.Nombre As Distrito, E.Fecha_inicio
+FROM
+	COA.F_PARADAS_EVENTOS PE,
+	COA.D_PARADA P,
+	COA.D_BARRIO B,
+	COA.D_DISTRITO D,
+	COA.D_UBICACION_EVENTO UE,
+	COA.D_UBICACIONES_EVENTOS UES,
+	COA.D_EVENTO E
+WHERE
+	PE.ID_PARADA = P.ID_PARADA
+	AND P.ID_BARRIO = B.ID_BARRIO
+	AND B.ID_DISTRITO = D.ID_DISTRITO
+	AND UE.ID_UBICACION_EVENTO = PE.ID_UBICACION_EVENTO
+	AND UES.ID_UBICACION_EVENTO = UE.ID_UBICACION_EVENTO
+	AND UES.ID_EVENTO = E.ID_EVENTO;
